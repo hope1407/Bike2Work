@@ -1,8 +1,22 @@
-var requestUrl = 'http://www.mapquestapi.com/directions/v2/route?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&from=Clarendon Blvd,Arlington,VA&to=2400+S+Glebe+Rd,+Arlington,+VA';
+let addressInput = document.querySelector('.title')
+let fromAddressInput = document.querySelector('#fromAddress');
+let toAddressInput = document.querySelector('#toAddress')
+let getDirectionsBtn = document.querySelector('button')
 
+var addressSubmitHandler = function(event){
+  event.preventDefault();
+  var fromAddress = fromAddressInput.value;
+  var toAddress = toAddressInput.value;
+  if (fromAddress && toAddress){
+    getDirections(fromAddress,toAddress)
+  } else {
+    alert('Please enter valid addresses.');
+}
+}
 
-// Browser Fetch Method
-//fetch(requestUrl)
+let getDirections = function(fromAddress,toAddress){
+  var requestUrl = 'http://www.mapquestapi.com/directions/v2/route?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&from=' + fromAddress + '&to=' + toAddress;
+  fetch(requestUrl)
   .then(function (response) {
     return response.json();
   })
@@ -10,3 +24,5 @@ var requestUrl = 'http://www.mapquestapi.com/directions/v2/route?key=kAuLKYebMSA
     console.log('Fetch Response \n-------------');
     console.log(data);
   });
+}
+getDirectionsBtn.addEventListener('click',addressSubmitHandler)
