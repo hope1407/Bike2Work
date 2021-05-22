@@ -2,6 +2,7 @@ let addressInput = document.querySelector('.title')
 let fromAddressInput = document.querySelector('#fromAddress');
 let toAddressInput = document.querySelector('#toAddress')
 let getDirectionsBtn = document.querySelector('button')
+let milageResult = document.querySelector('.milage')
 
 var addressSubmitHandler = function(event){
   event.preventDefault();
@@ -22,7 +23,9 @@ let getDirections = function(fromAddress,toAddress){
   })
   .then(function (data) {
     console.log('Fetch Response \n-------------');
-    console.log(data);
+    milageResult.textContent = "You are " + data.route.distance.toFixed(1) + " miles from this business."
+    console.log(data.route.distance);
+    console.log(data)
   });
 }
 getDirectionsBtn.addEventListener('click',addressSubmitHandler)
