@@ -1,42 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=KoHo:wght@400;600;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=KoHo:wght@400;600;700&display=swap");
 
 * {
   box-sizing: border-box;
 }
 
 body {
-font-family: "KoHo", sans-serif;
-line-height: 1.5rem;
+  font-family: "KoHo", sans-serif;
+  line-height: 1.5rem;
 }
-
-.flex-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-}
-
-aside {
-  display: flex;
-  flex-direction: column;
-  flex:1;
-  margin: auto 20px;
-  padding-right:20px ;
-  border-right: 2px solid black;
-  align-items: center;
-}
-
-main {
-  display: flex;
-  flex: 2;
-  margin: auto 20px;
-}
-
-main h3 {
-  display: inline-block;
-}
-
 
 header {
   padding: 20px;
@@ -44,28 +15,103 @@ header {
   flex-direction: column;
   background-color: burlywood;
   width: 100%;
+  text-align: center;
 }
 
 header h1 {
   margin-bottom: 0;
 }
 
-main {
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: chocolate;
+}
+
+aside {
   display: flex;
   flex-direction: column;
+  flex: 3;
+  margin: auto 20px;
+  padding: 40px;
+  align-items: center;
+  background-color: cadetblue;
 }
 
-#start-btn{
-  height: 75px;
-  width: 150px;
-  color: #000;
-  font-size: 1.5rem;
-  border-radius: 40px;
-  box-shadow: 2px 2px 2px #aaa;
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  height: auto;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: antiquewhite;
+  text-align: center;
 }
 
-#start-btn:hover {
+.form-label {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.form-input {
+  margin-bottom: 20px;
+}
+
+input {
+  width: 85%;
+  border-radius: 7px;
+  height: 30px;
+  margin: auto;
+  padding-left: 10px;
+}
+
+select {
+  width: 85%;
+  border-radius: 7px;
+  height: 30px;
+  margin: auto;
+  padding-left: 10px;
+}
+
+#submit-btn {
+  margin: 20px auto;
+  width: 90px;
+  height: 35px;
+  border-radius: 12px;
+}
+
+#submit-btn:hover {
   cursor: pointer;
-  background-color: burlywood;
-  box-shadow: 4px 4px 4px #aaa;
+  background-color: #ccc;
+}
+
+main {
+  display: flex;
+  flex: 5;
+  margin: auto 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 10px;
+}
+
+main h3 {
+  display: inline-block;
+}
+
+.results {
+  height: 80vh;
+  overflow-y: auto;
+  width: 95%;
+  border: 6px solid black;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.result {
+  margin-bottom:50px;
 }
