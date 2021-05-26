@@ -1,8 +1,10 @@
 let addressInput = document.querySelector('.title')
 let fromAddressInput = document.querySelector('#fromAddress');
 let toAddressInput = document.querySelector('#toAddress')
+let stockSymbolInput = document.querySelector('#stockSymbolInput')
 let getDirectionsBtn = document.querySelector('button')
 let milageResult = document.querySelector('.milage')
+let companyDesc = document.querySelector('.description')
 
 var addressSubmitHandler = function(event){
   event.preventDefault();
@@ -10,6 +12,7 @@ var addressSubmitHandler = function(event){
   var toAddress = toAddressInput.value;
   if (fromAddress && toAddress){
     getDirections(fromAddress,toAddress)
+    getCompany()
   } else {
     alert('Please enter valid addresses.');
 }
@@ -23,26 +26,25 @@ let getDirections = function(fromAddress,toAddress){
   })
   .then(function (data) {
     console.log('Fetch Response \n-------------');
-    milageResult.textContent = "You are " + data.route.distance + " miles from this business."
+    milageResult.textContent = "You are " + data.route.distance.toFixed(1) + " miles from this business."
     console.log(data.route.distance);
     console.log(data)
   });
 }
 
-var secRequestUrl = 'https://www.alphavantage.co/query?function=OVERVIEW&symbol='+ stockSymbol+'&apikey=9WF9ANK00ZXR6G48'
-  fetch(secRequest)
+let getCompany = function(stockSymbol){
+  var secRequestUrl = 'https://www.alphavantage.co/query?function=OVERVIEW&symbol='+ stockSymbol + '&apikey=9WF9ANK00ZXR6G48'
+  fetch(secRequestUrl)
   .then(function (response) {
     return response.json();
   })
   .then(function (data) {
     console.log('Fetch Response \n-------------');
-    console.log(data)});
+    let companyAddress = data.Address
+    console.log(data)
+    console.log(companyAddress)
+  });
+};
 
-    fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log('Fetch Response \n-------------');
-      console.log(data)});
-getDirectionsBtn.addEventListener('click',addressSubmitHandler)
+
+getDirectionsBtn.addEventListener('click',addressSubmitHandler,)
