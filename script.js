@@ -23,9 +23,26 @@ let getDirections = function(fromAddress,toAddress){
   })
   .then(function (data) {
     console.log('Fetch Response \n-------------');
-    milageResult.textContent = "You are " + data.route.distance.toFixed(1) + " miles from this business."
+    milageResult.textContent = "You are " + data.route.distance + " miles from this business."
     console.log(data.route.distance);
     console.log(data)
   });
 }
+
+var secRequestUrl = 'https://www.alphavantage.co/query?function=OVERVIEW&symbol='+ stockSymbol+'&apikey=9WF9ANK00ZXR6G48'
+  fetch(secRequest)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log('Fetch Response \n-------------');
+    console.log(data)});
+
+    fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log('Fetch Response \n-------------');
+      console.log(data)});
 getDirectionsBtn.addEventListener('click',addressSubmitHandler)
