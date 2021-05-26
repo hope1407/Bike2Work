@@ -9,17 +9,16 @@ let companyDesc = document.querySelector('.description')
 var addressSubmitHandler = function(event){
   event.preventDefault();
   var fromAddress = fromAddressInput.value;
-  var toAddress = toAddressInput.value;
-  if (fromAddress && toAddress){
-    getDirections(fromAddress,toAddress)
-    getCompany()
+  var stockSymbol = stockSymbolInput.value
+  if (fromAddress && stockSymbol){
+    getCompany(stockSymbol)
   } else {
     alert('Please enter valid addresses.');
 }
 }
 
-let getDirections = function(fromAddress,toAddress){
-  var requestUrl = 'http://www.mapquestapi.com/directions/v2/route?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&from=' + fromAddress + '&to=' + toAddress;
+let getDistance = function(fromAddress,companyAddress){
+  var requestUrl = 'http://www.mapquestapi.com/directions/v2/route?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&from=' + fromAddress + '&to=' + companyAddress;
   fetch(requestUrl)
   .then(function (response) {
     return response.json();
@@ -41,8 +40,13 @@ let getCompany = function(stockSymbol){
   .then(function (data) {
     console.log('Fetch Response \n-------------');
     let companyAddress = data.Address
+    let companyDescription = data.Description
+    var fromAddress = fromAddressInput.value;
+    companyDesc.textContent = companyDescription
     console.log(data)
     console.log(companyAddress)
+    console.log(companyDescription)
+    getDistance(fromAddress,companyAddress)
   });
 };
 
