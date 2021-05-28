@@ -1,0 +1,15 @@
+body{
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #1eae98;
+    font-family: 'Pattaya', sans-serif;
+}
+.title {
+    display: flex;
+    justify-content: center;
+    font-family: 'Pattaya', sans-serif;
+    color: blue;
+    font-size: 64px;
+}
+
