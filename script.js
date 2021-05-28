@@ -1,22 +1,28 @@
 let addressInput = document.querySelector('.title')
 let fromAddressInput = document.querySelector('#fromAddress');
 let toAddressInput = document.querySelector('#toAddress')
+
+let stockSymbolInput = document.querySelector('#stockSymbolInput')
 let getDirectionsBtn = document.querySelector('button')
 let milageResult = document.querySelector('.milage')
+let companyDesc = document.querySelector('.description')
 
 var addressSubmitHandler = function(event){
   event.preventDefault();
   var fromAddress = fromAddressInput.value;
-  var toAddress = toAddressInput.value;
-  if (fromAddress && toAddress){
-    getDirections(fromAddress,toAddress)
+
+  var stockSymbol = stockSymbolInput.value
+  if (fromAddress && stockSymbol){
+    getCompany(stockSymbol)
+
   } else {
     alert('Please enter valid addresses.');
 }
 }
 
-let getDirections = function(fromAddress,toAddress){
-  var requestUrl = 'http://www.mapquestapi.com/directions/v2/route?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&from=' + fromAddress + '&to=' + toAddress;
+let getDistance = function(fromAddress,companyAddress){
+  var requestUrl = 'http://www.mapquestapi.com/directions/v2/route?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&from=' + fromAddress + '&to=' + companyAddress;
+
   fetch(requestUrl)
   .then(function (response) {
     return response.json();
@@ -28,35 +34,27 @@ let getDirections = function(fromAddress,toAddress){
     console.log(data)
   });
 }
-getDirectionsBtn.addEventListener('click',addressSubmitHandler)
 
-let businessInput = document.querySelector('.title')
-let businessName = document.querySelector('#business-name');
-let getCostBtn = document.querySelector('search-button')
-let costResult = document.querySelector('.cost')
+let getCompany = function(stockSymbol){
+  var secRequestUrl = 'https://www.alphavantage.co/query?function=OVERVIEW&symbol='+ stockSymbol + '&apikey=9WF9ANK00ZXR6G48'
+  fetch(secRequestUrl)
 
-var costSubmitHandler = function(event){
-  event.preventDefault();
-  var business = businessName.value;
-
-  if (business){
-    getCost(business)
-  } else {
-    alert('Please enter valid business.');
-}
-}
-
-let getCost = function(business){
-  var requestUrl = 'http://www.mapquestapi.com/directions/v2/route?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&from=' + fromAddress;
-  fetch(requestUrl)
   .then(function (response) {
     return response.json();
   })
   .then(function (data) {
     console.log('Fetch Response \n-------------');
-    costResult.textContent = "Business is " + data.route.distance.toFixed(1) + " miles from this business."
-    console.log(data.route.distance);
+
+    let companyAddress = data.Address
+    let companyDescription = data.Description
+    var fromAddress = fromAddressInput.value;
+    companyDesc.textContent = companyDescription
     console.log(data)
+    console.log(companyAddress)
+    console.log(companyDescription)
+    getDistance(fromAddress,companyAddress)
   });
-}
-getCostBtn.addEventListener('click',costSubmitHandler)
+};
+
+
+getDirectionsBtn.addEventListener('click',addressSubmitHandler,)
