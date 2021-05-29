@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 
@@ -8,7 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project Title</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/style.css">
 </head>
 
@@ -28,65 +30,96 @@
 
   <div class="columns">
     <aside class="column is-two-fifths m-4">
-<div class="is-size-5 m-5">
-<p>This is what our application does. We are telling you here in this paragraph. 
-</p>
-<p>
-  Here is where we tell you what to do with city search input field and we will give you back a stock symbol and company information. 
-</p>
-</div>
-    <form class="m-6 p-4 notification box form">
+      <div class="is-size-5 m-5">
+        <p>This is what our application does. We are telling you here in this paragraph.
+        </p>
+        <p>
+          Here is where we tell you what to do with city search input field and we will give you back a stock symbol and
+          company information.
+        </p>
+      </div>
+      <form class="m-6 p-4 notification box form">
         <div class="field">
           <label class="label has-text-white" for="stock-symbol" id="stock-symbol-label">Stock Symbol:</label>
           <div class="control has-icons-left">
-            <input class="input mb-2 stockSymbolInput" id="stock-symbol" type="text" placeholder="Enter stock symbol"><span class="icon is-small is-left"><i class="fas fa-chart-line"></i></span>
-          </div> 
+            <input class="input mb-2 stockSymbolInput" id="stock-symbol" type="text"
+              placeholder="Enter stock symbol"><span class="icon is-small is-left"><i
+                class="fas fa-chart-line"></i></span>
+          </div>
         </div>
         <div class="field">
           <label class="label has-text-white" for="user-address" id="user-address-label">Your Address or Zip:</label>
           <div class="control has-icons-left">
-            <input class="input mb-2 fromAddress" id="user-address" type="text" placeholder="Enter your address or zip"><span class="icon is-small is-left"><i class="fas fa-home"></i></span>
-          </div> 
-          
+            <input class="input mb-2 fromAddress" id="user-address" type="text"
+              placeholder="Enter your address or zip"><span class="icon is-small is-left"><i
+                class="fas fa-home"></i></span>
+          </div>
+
         </div>
         <button class="button is-fullwidth is-medium mb-2" id="submit-btn">Submit</button>
       </form>
-        <hr class="m-0">
-        <!-- search for symbol by company name  -->
-        <p class="pt-5 ml-6 mr-6 is-size-5">If you don't know the company's stock symbol, search for it here. Hover your mouse over the search results for more info.</p>
-        <form class="m-6 p-4 notification box form">
+      <hr class="m-0">
+      <!-- search for symbol by company name  -->
+      <p class="pt-5 ml-6 mr-6 is-size-5">If you don't know the company's stock symbol, search for it here. Hover your
+        mouse over the search results for more info.</p>
+      <form class="m-6 p-4 notification box form">
         <div class="field">
           <label class="label has-text-white mt-2" for="company-name" id="company-name-label">Company Name:</label>
           <div class="control has-icons-left">
-            <input class="input companyNameInput" id="company-name" type="text" placeholder="Enter company name"><span class="icon is-small is-left"><i class="fas fa-building"></i></span>
-            <button class="button is-fullwidth is-medium mb-2 mt-4 companyNameSearchBtn" id="symbol-search-btn">Search Symbols</button>
-          </div> 
-        </form>
+            <input class="input companyNameInput" id="company-name" type="text" placeholder="Enter company name"><span
+              class="icon is-small is-left"><i class="fas fa-building"></i></span>
+            <button class="button is-fullwidth is-medium mb-2 mt-4 companyNameSearchBtn" id="symbol-search-btn">Search
+              Symbols</button>
+          </div>
+      </form>
 
-          <div id="resultBtnDiv"></div>
+      <div id="resultBtnDiv"></div>
+  </div>
+
+  </aside>
+  <main class="column m-4">
+    <div class="notification main-frame m-5 p-1">
+      <section class="m-2 results notification box scrollable">
+        <div id="result1" class="result mb-6">
+          <div class="mb-2">
+            <h3>Company Name:</h3> <span id="company-name-field"></span>
+          </div>
+          <div class="mb-2">
+            <h3>Description:</h3> <span id="company-description-field"></span>
+          </div>
+          <div class="mb-2">
+            <h3>Current Stock Price:</h3> <span id="current-stock-price"></span>
+          </div>
+          <div class="mb-2">
+            <h3>Previous Day Price:</h3> <span id="previous-day-price"></span>
+          </div>
+          <div class="mb-2">
+            <h3>Change Percent:</h3> <span id="change-percent"></span>
+          </div>
+          <div class="mb-2">
+            <h3>Distance:</h3> <span id="company-distance-from-field"></span>
+          </div>
         </div>
-
-</aside>
-<main class="column m-4">
-  <div class="notification main-frame m-5 p-1">
-  <section class="m-2 results notification box scrollable">
-  <div id="result1" class="result mb-6">
-<div class="mb-2"><h3>Company Name:</h3> <span id="company-name-field"></span></div>
-<div class="mb-2"><h3>Description:</h3> <span id="company-description-field"></span></div>
-<div class="mb-2"><h3>Current Stock Price:</h3> <span id="current-stock-price"></span></div>
-<div class="mb-2"><h3>Previous Day Price:</h3> <span id="previous-day-price"></span></div>
-<div class="mb-2"><h3>Change Percent:</h3> <span id="change-percent"></span></div>
-<div class="mb-2"><h3>Distance:</h3> <span id="company-distance-from-field"></span></div>
-</div>
-</section>
-</div>
-</main>
-<!--
+      </section>
+    </div>
+  </main>
+  <!--
   brian moved the following to divs above within main area  
   <div class="description"></div>
   <div class="milage"></div>
 -->
-</div>
+  </div>
+  <div class="modal" id="custom-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="box" id="modal-content-custom">
+        <div>You're missing something!</div>
+        <button class="button" id="modBtn" onclick="modalClose()">Sorry, Let me try again.</button>
+      </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
   <script src="./assets/script.js"></script>
 </body>
+
 </html>

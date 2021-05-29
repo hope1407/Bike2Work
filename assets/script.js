@@ -8,6 +8,8 @@ let companyNameSearchBtn = document.querySelector('.companyNameSearchBtn')
 let getDirectionsBtn = document.querySelector('button')
 let milageResult = document.querySelector('.milage')
 let companyDesc = document.querySelector('.description')
+let modal = document.querySelector('#custom-modal')
+let modBtn = document.querySelector('#modBtn')
 
 var addressSubmitHandler = function(event){
   event.preventDefault();
@@ -17,7 +19,7 @@ var addressSubmitHandler = function(event){
     getCompany(stockSymbol)
 
   } else {
-    alert('Please enter valid addresses.');
+    modal.style.display = 'flex';
 }
 }
 
@@ -101,7 +103,7 @@ let getCompany = function(stockSymbol){
 };
 
 
-getDirectionsBtn.addEventListener('click',addressSubmitHandler,)
+getDirectionsBtn.addEventListener('click',addressSubmitHandler)
 
 
 function symbolSearch(event) {
@@ -147,6 +149,9 @@ fetch("https://finnhub.io/api/v1/search?q=" + searchedCompanyName  + "&token=c2m
 
 })}
 
+function modalClose(){
+  modal.style.display = 'none'
+}
 
 companyNameSearchBtn.addEventListener('click', symbolSearch)
   
