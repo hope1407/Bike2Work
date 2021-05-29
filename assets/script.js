@@ -106,7 +106,7 @@ getDirectionsBtn.addEventListener('click',addressSubmitHandler,)
 
 function symbolSearch(event) {
   event.preventDefault();
-  document.getElementById('testDiv').innerHTML = '';
+  document.getElementById('resultBtnDiv').innerHTML = '';
   let searchedCompanyName = searchedCompanyNameInput.value;
 
 fetch("https://finnhub.io/api/v1/search?q=" + searchedCompanyName  + "&token=c2mpcsqad3idu4aiefeg")
@@ -117,21 +117,21 @@ fetch("https://finnhub.io/api/v1/search?q=" + searchedCompanyName  + "&token=c2m
       for (let r = 0; r < 5; r++) {
       
       searchResultSymbol = data3.result[r].displaySymbol;
-      console.log(searchResultSymbol);
-
-
+      previewCompanyName = data3.result[r].description;
       
       // create new div
       const newResultDiv = document.createElement("button");
       // ids sequentially
-      newResultDiv.setAttribute("class", "result-btn")
+      newResultDiv.setAttribute("class", "result-btn mt-2 button mb-1")
       // and give it some content
       const newResultContent = document.createTextNode(searchResultSymbol);
       // add the text node to the newly created div
       newResultDiv.appendChild(newResultContent);
       // add the newly created element and its content into the DOM
-      const currentDiv = document.getElementById("testDiv");
+      const currentDiv = document.getElementById("resultBtnDiv");
       currentDiv.appendChild(newResultDiv);
+
+      newResultDiv.setAttribute("title", previewCompanyName)
     }
      
   

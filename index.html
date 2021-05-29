@@ -13,13 +13,13 @@
 </head>
 
 <body class="">
-  <section class="hero is-info">
+  <section class="hero header">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title center is-size-1">
+        <h1 class="title center has-text-white is-size-1">
           Primary title
         </h1>
-        <h2 class="subtitle center is-size-4">
+        <h2 class="subtitle center has-text-white is-size-4">
           Primary subtitle
         </h2>
       </div>
@@ -35,7 +35,7 @@
   Here is where we tell you what to do with city search input field and we will give you back a stock symbol and company information. 
 </p>
 </div>
-    <form class="m-6 p-4 notification is-info box">
+    <form class="m-6 p-4 notification box form">
         <div class="field">
           <label class="label has-text-white" for="stock-symbol" id="stock-symbol-label">Stock Symbol:</label>
           <div class="control has-icons-left">
@@ -49,25 +49,26 @@
           </div> 
           
         </div>
-        <button class="button has-background-grey-light is-fullwidth is-medium mb-2" id="submit-btn">Submit</button>
+        <button class="button is-fullwidth is-medium mb-2" id="submit-btn">Submit</button>
       </form>
-        <hr>
+        <hr class="m-0">
         <!-- search for symbol by company name  -->
-        <form class="m-6 p-4 notification is-info box">
+        <p class="pt-5 ml-6 mr-6 is-size-5">If you don't know the company's stock symbol, search for it here. Hover your mouse over the search results for more info.</p>
+        <form class="m-6 p-4 notification box form">
         <div class="field">
           <label class="label has-text-white mt-2" for="company-name" id="company-name-label">Company Name:</label>
           <div class="control has-icons-left">
             <input class="input companyNameInput" id="company-name" type="text" placeholder="Enter company name"><span class="icon is-small is-left"><i class="fas fa-building"></i></span>
-            <button class="button has-background-grey-light is-fullwidth is-medium mb-2 companyNameSearchBtn" id="symbol-search-btn">Search for Stock Symbol</button>
+            <button class="button is-fullwidth is-medium mb-2 mt-4 companyNameSearchBtn" id="symbol-search-btn">Search Symbols</button>
           </div> 
         </form>
 
-          <div id="testDiv"></div>
+          <div id="resultBtnDiv"></div>
         </div>
 
 </aside>
 <main class="column m-4">
-  <div class="notification is-info m-5 p-1">
+  <div class="notification main-frame m-5 p-1">
   <section class="m-2 results notification box scrollable">
   <div id="result1" class="result mb-6">
 <div class="mb-2"><h3>Company Name:</h3> <span id="company-name-field"></span></div>
