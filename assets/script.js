@@ -36,14 +36,10 @@ let getDistance = function(fromAddress,companyAddress){
 
   // start brian's code
   let companyDistanceFromField = document.getElementById("company-distance-from-field");
-
   companyDistanceFromField.textContent =
   "You are " + data.route.distance.toFixed(1) + " miles from this business."
   // end brian's code
-
   });
-
-
 }
 
 let getCompany = function(stockSymbol){
@@ -60,23 +56,18 @@ let getCompany = function(stockSymbol){
 
 // brian moved this to main display area 
     // companyDesc.textContent = companyDescription
-// end 
 
     console.log(data)
     console.log(companyAddress)
     console.log(companyDescription)
     getDistance(fromAddress,companyAddress)
     
-    // start brian's code
+    // brian new code
     let companyName = data.Name;
     let companyNameField = document.getElementById("company-name-field");
     let companyDescriptionField = document.getElementById("company-description-field");
-    
     companyNameField.textContent = companyName
-
     companyDescriptionField.textContent = companyDescription;
-
-    
   });
 
   // stock quote api
@@ -110,14 +101,13 @@ let getCompany = function(stockSymbol){
 };
 
 
-
 getDirectionsBtn.addEventListener('click',addressSubmitHandler,)
 
 
-function symbolSearch() {
+function symbolSearch(event) {
+  event.preventDefault();
   document.getElementById('testDiv').innerHTML = '';
-
-let searchedCompanyName = searchedCompanyNameInput.value;
+  let searchedCompanyName = searchedCompanyNameInput.value;
 
 fetch("https://finnhub.io/api/v1/search?q=" + searchedCompanyName  + "&token=c2mpcsqad3idu4aiefeg")
   .then(response => { return response.json()})
@@ -148,29 +138,12 @@ fetch("https://finnhub.io/api/v1/search?q=" + searchedCompanyName  + "&token=c2m
     // TODO create onclick to display clicked stock symbol in input
     let resultBtn = document.querySelectorAll('.result-btn')
     
-    
-  //   for (let s = 0; s < 5; s++) {
-  //     resultBtn[s].addEventListener("click", function () {
-  //     stockSymbolInput.value = resultBtn[s].textContent;
-  //     let searchedSymbolVar = resultBtn[s].textContent;
-  //     getCompany(searchedSymbolVar);
-  //     return;
-  //   })};
-    
-    
-  for (let s = 0; s < 5; s++) {
-    
-    resultBtn[s].addEventListener('click', function() {
-
-
-      stockSymbolInput.value = data3.result[s].displaySymbol;
-    }) 
+    for (let s = 0; s < 5; s++) {
+      resultBtn[s].addEventListener("click", function (event) {
+        event.preventDefault();
+        stockSymbolInput.value = data3.result[s].displaySymbol;
+      });
   }
-  //   event.preventDefault();
-  //   let what = resultBtn[s].innerHTML;
-
-  //   console.log(what);
-  
 
 })}
 
