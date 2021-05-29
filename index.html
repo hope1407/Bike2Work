@@ -36,85 +36,56 @@
 </p>
 </div>
     <form class="m-6 p-4 notification is-info box">
-      <div class="field">
-        <label class="label has-text-white mt-2" for="user-address" id="user-address-label">Company Name:</label>
-        <div class="control has-icons-left">
-          <input class="input" id="user-address" type="text" placeholder="Enter company name"><span class="icon is-small is-left"><i class="fas fa-building"></i></span>
-        </div> 
-      </div>
-        <p class="center is-size-4">or</p>
         <div class="field">
-          <label class="label has-text-white" for="user-address" id="user-address-label">Stock Symbol:</label>
+          <label class="label has-text-white" for="stock-symbol" id="stock-symbol-label">Stock Symbol:</label>
           <div class="control has-icons-left">
-            <input class="input mb-2 stockSymbolInput" id="user-address" type="text" placeholder="Enter stock symbol"><span class="icon is-small is-left"><i class="fas fa-chart-line"></i></span>
+            <input class="input mb-2 stockSymbolInput" id="stock-symbol" type="text" placeholder="Enter stock symbol"><span class="icon is-small is-left"><i class="fas fa-chart-line"></i></span>
           </div> 
         </div>
+        <div class="field">
+          <label class="label has-text-white" for="user-address" id="user-address-label">Your Address or Zip:</label>
+          <div class="control has-icons-left">
+            <input class="input mb-2 fromAddress" id="user-address" type="text" placeholder="Enter your address or zip"><span class="icon is-small is-left"><i class="fas fa-home"></i></span>
+          </div> 
+          
+        </div>
+        <button class="button has-background-grey-light is-fullwidth is-medium mb-2" id="submit-btn">Submit</button>
+      </form>
         <hr>
-      <div class="field">
-        <label class="label has-text-white" for="user-address" id="user-address-label">Your Address or Zip:</label>
-        <div class="control has-icons-left">
-          <input class="input mb-2 fromAddress" id="user-address" type="text" placeholder="Enter your address or zip"><span class="icon is-small is-left"><i class="fas fa-home"></i></span>
-        </div> 
-    
-      </div>
-      <button class="button has-background-grey-light is-fullwidth is-medium mb-2" id="submit-btn">Submit</button>
-    </form>
+        <!-- search for symbol by company name  -->
+        <form class="m-6 p-4 notification is-info box">
+        <div class="field">
+          <label class="label has-text-white mt-2" for="company-name" id="company-name-label">Company Name:</label>
+          <div class="control has-icons-left">
+            <input class="input companyNameInput" id="company-name" type="text" placeholder="Enter company name"><span class="icon is-small is-left"><i class="fas fa-building"></i></span>
+            <button class="button has-background-grey-light is-fullwidth is-medium mb-2 companyNameSearchBtn" id="symbol-search-btn">Search for Stock Symbol</button>
+          </div> 
+        </form>
+
+          <div id="testDiv"></div>
+        </div>
 
 </aside>
 <main class="column m-4">
   <div class="notification is-info m-5 p-1">
   <section class="m-2 results notification box scrollable">
   <div id="result1" class="result mb-6">
-<div class="mb-2"><h3>Company Name:</h3> <span id="company-name"></span></div>
-<div class="mb-2"><h3>Data1:</h3> <span id="data1"></span></div>
-<div class="mb-2"><h3>Data2:</h3> <span id="data2"></span></div>
-<div class="mb-2"><h3>Data3:</h3> <span id="data3"></span></div>
-<div class="mb-2"><h3>Data4:</h3> <span id="data4"></span></div>
+<div class="mb-2"><h3>Company Name:</h3> <span id="company-name-field"></span></div>
+<div class="mb-2"><h3>Description:</h3> <span id="company-description-field"></span></div>
+<div class="mb-2"><h3>Current Stock Price:</h3> <span id="current-stock-price"></span></div>
+<div class="mb-2"><h3>Previous Day Price:</h3> <span id="previous-day-price"></span></div>
+<div class="mb-2"><h3>Change Percent:</h3> <span id="change-percent"></span></div>
+<div class="mb-2"><h3>Distance:</h3> <span id="company-distance-from-field"></span></div>
 </div>
-<div id="result2" class="result mb-6">
-  <div class="mb-2"><h3>Company Name:</h3> <span id="company-name"></span></div>
-  <div class="mb-2"><h3>Data1:</h3> <span id="data1"></span></div>
-  <div class="mb-2"><h3>Data2:</h3> <span id="data2"></span></div>
-  <div class="mb-2"><h3>Data3:</h3> <span id="data3"></span></div>
-  <div class="mb-2"><h3>Data4:</h3> <span id="data4"></span></div>
-  </div>
-  <div id="result2" class="result mb-6">
-    <div class="mb-2 has-icons-left"><h3>Company Name:</h3> <span id="company-name"></span></div>
-    <div class="mb-2"><h3>Data1:</h3> <span id="data1"></span></div>
-    <div class="mb-2"><h3>Data2:</h3> <span id="data2"></span></div>
-    <div class="mb-2"><h3>Data3:</h3> <span id="data3"></span></div>
-    <div class="mb-2"><h3>Data4:</h3> <span id="data4"></span></div>
-    </div>
-    <div id="result2" class="result mb-6">
-      <div class="mb-2"><h3>Company Name:</h3> <span id="company-name"></span></div>
-      <div class="mb-2"><h3>Data1:</h3> <span id="data1"></span></div>
-      <div class="mb-2"><h3>Data2:</h3> <span id="data2"></span></div>
-      <div class="mb-2"><h3>Data3:</h3> <span id="data3"></span></div>
-      <div class="mb-2"><h3>Data4:</h3> <span id="data4"></span></div>
-      </div>
-      <div id="result2" class="result mb-6">
-        <div class="mb-2"><h3>Company Name:</h3> <span id="company-name"></span></div>
-        <div class="mb-2"><h3>Data1:</h3> <span id="data1"></span></div>
-        <div class="mb-2"><h3>Data2:</h3> <span id="data2"></span></div>
-        <div class="mb-2"><h3>Data3:</h3> <span id="data3"></span></div>
-        <div class="mb-2"><h3>Data4:</h3> <span id="data4"></span></div>
-        </div>
-        <div id="result2" class="result mb-6">
-          <div class="mb-2"><h3>Company Name:</h3> <span id="company-name"></span></div>
-          <div class="mb-2"><h3>Data1:</h3> <span id="data1"></span></div>
-          <div class="mb-2"><h3>Data2:</h3> <span id="data2"></span></div>
-          <div class="mb-2"><h3>Data3:</h3> <span id="data3"></span></div>
-          <div class="mb-2"><h3>Data4:</h3> <span id="data4"></span></div>
-          </div>
- 
- 
 </section>
 </div>
 </main>
-<div class="description"></div>
-<div class="milage"></div>
+<!--
+  brian moved the following to divs above within main area  
+  <div class="description"></div>
+  <div class="milage"></div>
+-->
 </div>
   <script src="./assets/script.js"></script>
-
 </body>
 </html>
