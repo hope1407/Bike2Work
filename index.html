@@ -18,10 +18,10 @@
   <section class="hero header">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title center has-text-white is-size-1">
+        <h1 class="mb-5 has-text-weight-semibold center is-size-1">
           Primary title
         </h1>
-        <h2 class="subtitle center has-text-white is-size-4">
+        <h2 class="center has-text-weight-semibold is-size-4">
           Primary subtitle
         </h2>
       </div>
@@ -30,17 +30,17 @@
 
   <div class="columns">
     <aside class="column is-two-fifths m-4">
-      <div class="is-size-5 m-5">
-        <p>This is what our application does. We are telling you here in this paragraph.
+      <div>
+        <p class="pt-5 ml-5 is-size-5">This is what our application does. We are telling you here in this paragraph.
         </p>
-        <p>
+        <p class="pt-5 ml-5 mb-4 is-size-5">
           Here is where we tell you what to do with city search input field and we will give you back a stock symbol and
           company information.
         </p>
       </div>
-      <form class="m-6 p-4 notification box form">
+      <form class="ml-2 p-4 notification box form">
         <div class="field">
-          <label class="label has-text-white" for="stock-symbol" id="stock-symbol-label">Stock Symbol:</label>
+          <label class="label has-text-white is-size-5" for="stock-symbol" id="stock-symbol-label">Stock Symbol:</label>
           <div class="control has-icons-left">
             <input class="input mb-2 stockSymbolInput" id="stock-symbol" type="text"
               placeholder="Enter stock symbol"><span class="icon is-small is-left"><i
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="field">
-          <label class="label has-text-white" for="user-address" id="user-address-label">Your Address or Zip:</label>
+          <label class="label has-text-white is-size-5" for="user-address" id="user-address-label">Your Address or Zip:</label>
           <div class="control has-icons-left">
             <input class="input mb-2 fromAddress" id="user-address" type="text"
               placeholder="Enter your address or zip"><span class="icon is-small is-left"><i
@@ -56,19 +56,18 @@
           </div>
 
         </div>
-        <button class="button is-fullwidth is-medium mb-2" id="submit-btn">Submit</button>
+        <button class="button is-fullwidth is-medium mb-2 has-text-weight-semibold" id="submit-btn">Submit</button>
       </form>
       <hr class="m-0">
       <!-- search for symbol by company name  -->
-      <p class="pt-5 ml-6 mr-6 is-size-5">If you don't know the company's stock symbol, search for it here. Hover your
-        mouse over the search results for more info.</p>
-      <form class="m-6 p-4 notification box form">
+      <p class="pt-5 ml-6 mr-6 mb-4 is-size-5">If you don't know the company's stock symbol, search for it here.</p>
+      <form class="ml-2 p-4 notification box form">
         <div class="field">
-          <label class="label has-text-white mt-2" for="company-name" id="company-name-label">Company Name:</label>
+          <label class="label is-size-5 has-text-white mt-1" for="company-name" id="company-name-label">Company Name:</label>
           <div class="control has-icons-left">
             <input class="input companyNameInput" id="company-name" type="text" placeholder="Enter company name"><span
               class="icon is-small is-left"><i class="fas fa-building"></i></span>
-            <button class="button is-fullwidth is-medium mb-2 mt-4 companyNameSearchBtn" id="symbol-search-btn">Search
+            <button class="button is-fullwidth is-medium mb-2 mt-4 companyNameSearchBtn has-text-weight-semibold" id="symbol-search-btn">Search
               Symbols</button>
           </div>
       </form>
@@ -78,9 +77,10 @@
 
   </aside>
   <main class="column m-4">
-    <div class="notification main-frame m-5 p-1">
+    <div class="notification main-frame m-5 p-2">
       <section class="m-2 results notification box scrollable">
-        <div id="result1" class="result mb-6">
+        <!-- added hidden class to result div to hide the empty result headings until there's content to show  -->
+        <div id="result" class="result mb-6 hidden">
           <div class="mb-2">
             <h3>Company Name:</h3> <span id="company-name-field"></span>
           </div>
@@ -103,11 +103,7 @@
       </section>
     </div>
   </main>
-  <!--
-  brian moved the following to divs above within main area  
-  <div class="description"></div>
-  <div class="milage"></div>
--->
+ 
   </div>
   <div class="modal" id="custom-modal">
     <div class="modal-background"></div>
