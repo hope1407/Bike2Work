@@ -59,6 +59,11 @@
     background-color: var(--primary-bg-color);
   }
 
+  #user-biking-distance {
+    height: 40px;
+    border-radius: 7px;
+  }
+
   hr {
     background-color: var(--primary-bg-color);
     height: 3px;
