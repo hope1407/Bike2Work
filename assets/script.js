@@ -93,6 +93,7 @@ let getCompany = function(stockSymbol){
       let previousClose = data2["Global Quote"]["08. previous close"];
       let changePercent = data2["Global Quote"]["10. change percent"];
 
+      document.getElementById("result").classList.remove("hidden");
       currentPriceField.textContent = "$" + currentPrice;
       previousCloseField.textContent = "$" + previousClose;
       changePercentField.textContent = changePercent;
@@ -126,7 +127,7 @@ fetch("https://finnhub.io/api/v1/search?q=" + searchedCompanyName  + "&token=c2m
       // ids sequentially
       newResultDiv.setAttribute("class", "result-btn mt-2 button mb-1")
       // and give it some content
-      const newResultContent = document.createTextNode(searchResultSymbol);
+      const newResultContent = document.createTextNode(searchResultSymbol + " - " + previewCompanyName);
       // add the text node to the newly created div
       newResultDiv.appendChild(newResultContent);
       // add the newly created element and its content into the DOM
