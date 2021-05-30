@@ -1,6 +1,4 @@
-let addressInput = document.querySelector('.title')
 let fromAddressInput = document.querySelector('.fromAddress');
-let toAddressInput = document.querySelector('.toAddress')
 let stockSymbolInput = document.querySelector('.stockSymbolInput')
 // created variable for name lookup 
 let searchedCompanyNameInput = document.querySelector('.companyNameInput')
@@ -17,7 +15,7 @@ var addressSubmitHandler = function(event){
   var stockSymbol = stockSymbolInput.value
   if (fromAddress && stockSymbol){
     getCompany(stockSymbol)
-
+    latLngFinder(fromAddress);
   } else {
     modal.style.display = 'flex';
 }
@@ -154,5 +152,20 @@ function modalClose(){
   modal.style.display = 'none'
 }
 
-companyNameSearchBtn.addEventListener('click', symbolSearch)
+function latLngFinder(){
+  var fromAddress = fromAddressInput.value;
+  var latLonURL = 'http://www.mapquestapi.com/geocoding/v1/address?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&location=' + fromAddress + '';
   
+  fetch(latLonURL)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log('Fetch Response \n-------------')
+    console.log(data)
+    console.log(data.results[0].locations[0].latLng.lat)
+    console.log(data.results[0].locations[0].latLng.lng);
+  });
+  }
+
+companyNameSearchBtn.addEventListener('click', symbolSearch);
