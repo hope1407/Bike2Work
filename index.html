@@ -54,11 +54,19 @@
               placeholder="Enter your address or zip"><span class="icon is-small is-left"><i
                 class="fas fa-home"></i></span>
           </div>
-
         </div>
+        <div class="field">
+          <label class="label has-text-white is-size-5" for="user-biking-distance" id="user-biking-distance-label">Maximum Biking Distance:</label>
+          <div class="control has-icons-left">
+            <input class="input mb-2" id="user-biking-distance" type="text"
+              placeholder="Enter your maximum biking distance"><span class="icon is-small is-left"><i
+                class="fas fa-bicycle"></i></span>
+          </div>
+        </div>
+
         <button class="button is-fullwidth is-medium mb-2 has-text-weight-semibold" id="submit-btn">Submit</button>
       </form>
-      <hr class="m-0">
+      <hr class="ml-2 mb-0">
       <!-- search for symbol by company name  -->
       <p class="pt-5 ml-6 mr-6 mb-4 is-size-5">If you don't know the company's stock symbol, search for it here.</p>
       <form class="ml-2 p-4 notification box form">
@@ -98,6 +106,19 @@
           </div>
           <div class="mb-2">
             <h3>Distance:</h3> <span id="company-distance-from-field"></span>
+          </div>
+        </div>
+
+        <div id="location-results" class="result mb-6">
+          These are the locations where you can Bike2Work! (placeholder text for now)
+          <div class="mb-2">
+          <h3> <span class="location-result-name"></span> </h3>
+          </div>
+          <div class="mb-2">
+          <h3> <span class="location-result-address"></span> </h3>
+          </div>
+          <div class="mb-2">
+          <h3> <span class="location-result-distance"></span> </h3>
           </div>
         </div>
       </section>
