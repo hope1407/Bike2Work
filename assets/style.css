@@ -22,6 +22,7 @@
   --primary-bg-color: #5d737e;
   --body-color: #e9dfcb;
   --header-color: #FCFCFC;
+  --footer-bg-color: hsl(200, 15%, 23%);
 }
 
 * {
@@ -113,6 +114,18 @@
     transition: 0.2s all ease;
   }
 
+  .ftr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--footer-bg-color);
+    color: var(--header-color);
+    height: 80px;
+    text-shadow: 0px 2px 2px var(--box-shadow-color);
+    box-shadow: 0px 2px 2px var(--box-shadow-color);
+  }
+
   .hidden {
     display: none;
   }
@@ -122,6 +135,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  #modal-content-custom {
+    background-color: var(--body-color);
+    color: var(--primary-bg-color);
   }
   
   /* media queries */
