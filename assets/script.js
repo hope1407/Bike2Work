@@ -16,6 +16,8 @@ var addressSubmitHandler = function(event){
   if (fromAddress && stockSymbol){
     getCompany(stockSymbol)
     latLngFinder(fromAddress);
+    saveAddress();
+    //saveRecentAddressSearch(fromAddress);
   } else {
     modal.style.display = 'flex';
 }
@@ -104,51 +106,38 @@ let getCompany = function(stockSymbol){
 
 getDirectionsBtn.addEventListener('click',addressSubmitHandler)
 
-//tuyet's code start here for localstorage
+var saveAddressBtn = document.querySelectorAll("#user-save");
 
-let addressHistoryBtn = document.getElementById("addressHistory");
-let addressSearchInput = document.getElementById("user-address");
+function saveAddress(){
+        //get text input
+        var address = fromAddressInput.value;
+        //get local data if there is local data
+        var data = JSON.parse(localStorage.getItem("address")) || [];
+        //filter the data
+        const filteredData = data.filter(function (datum) {
+            if (datum.address !== address) {
+                return true
+            }
+            return false
+        });
+        //construct new data entry obj
+        var entry = {
+            address: address
+        }
+        filteredData.push(entry);
+        //overwrite local storgae with updated data
+        localStorage.setItem("address", JSON.stringify(entry));
+    };
 
-function saveRecentAddressSearch(searchedAddress) {
-  console.log("address", searchedAddress)
-   recentAddressSearch = JSON.parse(localStorage.getItem("recentAddressSearch"));
-   recentAddressSearch.push(searchedAddress)
-   if (recentAddressSearch === null) {
-     recentAddressSearch = [];
-   } else {
-   for (let a = 0; a < 3; a++)
-     addressHistoryBtn[a].addEventListener("click", function () {
-       addressSearchInput.value = addressHistoryBtn[a].textContent;
-       let addressHistoryvar = addressHistoryBtn[a].textContent;
-       getAddressByHistory(addressHistoryvar);
-       return;
-     });
-   }
-  
-   if (addressSearchInput !== "") {
-     recentAddressSearch.unshift(addressSearchInput.value);
-     if (recentAddressSearch.length > 3) {
-       recentAddressSearch.pop();
-     }
-   }
-   localStorage.setItem("recentAddressSearch", JSON.stringify(recentAddressSearch));
+var data = JSON.parse(localStorage.getItem("address")) || [];
+
+//displays each hours text on load of page
+console.log(data)
+function displayLocalSorage(){
+  fromAddressInput.value = data.address
 }
 
-function renderRecentSearches() {
-  let lastSearch = JSON.parse(localStorage.getItem("recentSearches"));
-  if (lastSearch !== null) {
-    addressHistoryBtn[0].textContent = lastSearch[0];
-    addressHistoryBtn[1].textContent = lastSearch[1];
-    addressHistoryBtn[2].textContent = lastSearch[2];
-  } else {
-    return;
-  }
-}
-
-
-
-
-// //tuyet's code ends for local storage
+displayLocalSorage()
 
 
 function symbolSearch(event) {
