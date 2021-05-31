@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 
@@ -8,47 +9,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project Title</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body class="">
-  <section class="hero is-info">
+  <section class="hero header">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title center is-size-1">
-          Primary title
+        <h1 class="mb-5 has-text-weight-semibold center is-size-1">
+          Bike2Work
         </h1>
-        <h2 class="subtitle center is-size-4">
-          Primary subtitle
+        <h2 class="center has-text-weight-semibold is-size-4">
+          Save money, get fit, and reduce your carbon footprint! 
         </h2>
       </div>
     </div>
   </section>
 
   <div class="columns">
-    <aside class="column is-two-fifths m-4">
-<div class="is-size-5 m-5">
-<p>This is what our application does. We are telling you here in this paragraph. 
-</p>
-<p>
-  Here is where we tell you what to do with city search input field and we will give you back a stock symbol and company information. 
-</p>
-</div>
-    <form class="m-6 p-4 notification is-info box">
+    <aside class="column is-two-fifths m-4 has-text-weight-semibold has-text-black">
+      <div class="">
+        <p class="pt-5 ml-5 is-size-5">TODO: Come up with good description of what our app is
+        </p>
+        <p class="pt-5 ml-5 mb-4 is-size-5">
+          TODO: Come up with good description of how to use it with the form below.
+        </p>
+      </div>
+      <form class="ml-2 p-4 notification box form">
         <div class="field">
-          <label class="label has-text-white" for="stock-symbol" id="stock-symbol-label">Stock Symbol:</label>
+          <label class="label has-text-white is-size-5" for="stock-symbol" id="stock-symbol-label">Stock Symbol:</label>
           <div class="control has-icons-left">
-            <input class="input mb-2 stockSymbolInput" id="stock-symbol" type="text" placeholder="Enter stock symbol"><span class="icon is-small is-left"><i class="fas fa-chart-line"></i></span>
-          </div> 
+            <input class="input mb-2 stockSymbolInput" id="stock-symbol" type="text"
+              placeholder="Enter stock symbol"><span class="icon is-small is-left"><i
+                class="fas fa-chart-line"></i></span>
+          </div>
         </div>
         <div class="field">
-          <label class="label has-text-white" for="user-address" id="user-address-label">Your Address or Zip:</label>
-          <div class="control has-icons-left">
-            <input class="input mb-2 fromAddress" id="user-address" type="text" placeholder="Enter your address or zip"><span class="icon is-small is-left"><i class="fas fa-home"></i></span>
-          </div> 
-          
+          <label class="label has-text-white is-size-5" for="user-save" id="user-save-label">Save Symbol to History?</label>
+          <div class="has-icons-left ml-2"><span class="icon is-small is-left"><i
+            class="fas fa-save has-text-white"></i></span>
+            <input class="mb-2 ml-2" id="user-save" type="checkbox">
+          </div>
         </div>
+        <div class="field">
+          <label class="label has-text-white is-size-5" for="user-address" id="user-address-label">Your Address or Zip:</label>
+          <div class="control has-icons-left">
+            <input class="input mb-2 fromAddress" id="user-address" type="text"
+              placeholder="Enter your address or zip"><span class="icon is-small is-left"><i
+                class="fas fa-home"></i></span>
+          </div>
+        </div>
+<<<<<<< HEAD
       <!--tuyet start here: localstorage for home address-->
 
       <section id="addressHistory">
@@ -59,42 +72,148 @@
 
       <!--tuyet end here: localstorage for home address-->
         <button class="button has-background-grey-light is-fullwidth is-medium mb-2" id="submit-btn">Submit</button>
-      </form>
-        <hr>
-        <!-- search for symbol by company name  -->
-        <form class="m-6 p-4 notification is-info box">
+=======
         <div class="field">
-          <label class="label has-text-white mt-2" for="company-name" id="company-name-label">Company Name:</label>
-          <div class="control has-icons-left">
-            <input class="input companyNameInput" id="company-name" type="text" placeholder="Enter company name"><span class="icon is-small is-left"><i class="fas fa-building"></i></span>
-            <button class="button has-background-grey-light is-fullwidth is-medium mb-2 companyNameSearchBtn" id="symbol-search-btn">Search for Stock Symbol</button>
-          </div> 
-        </form>
-
-          <div id="testDiv"></div>
+          <label class="label has-text-white is-size-5" for="user-biking-distance" id="user-biking-distance-label">Maximum Biking Distance (Miles):</label>
+            <div class="has-icons-left ml-2">
+              <span class="icon is-small is-left"><i class="fas fa-bicycle has-text-white"></i></span>
+            <select class="mb-2 ml-2" id="user-biking-distance">
+              <option value="default">Select distance</option>
+              <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                  <option value="32">32</option>
+                  <option value="33">33</option>
+                  <option value="34">34</option>
+                  <option value="35">35</option>
+                  <option value="36">36</option>
+                  <option value="37">37</option>
+                  <option value="38">38</option>
+                  <option value="39">39</option>
+                  <option value="40">40</option>
+                  <option value="41">41</option>
+                  <option value="42">42</option>
+                  <option value="43">43</option>
+                  <option value="44">44</option>
+                  <option value="45">45</option>
+                  <option value="46">46</option>
+                  <option value="47">47</option>
+                  <option value="48">48</option>
+                  <option value="49">49</option>
+                  <option value="50">50</option>
+                </select> 
+          </div>
         </div>
 
-</aside>
-<main class="column m-4">
-  <div class="notification is-info m-5 p-1">
-  <section class="m-2 results notification box scrollable">
-  <div id="result1" class="result mb-6">
-<div class="mb-2"><h3>Company Name:</h3> <span id="company-name-field"></span></div>
-<div class="mb-2"><h3>Description:</h3> <span id="company-description-field"></span></div>
-<div class="mb-2"><h3>Current Stock Price:</h3> <span id="current-stock-price"></span></div>
-<div class="mb-2"><h3>Previous Day Price:</h3> <span id="previous-day-price"></span></div>
-<div class="mb-2"><h3>Change Percent:</h3> <span id="change-percent"></span></div>
-<div class="mb-2"><h3>Distance:</h3> <span id="company-distance-from-field"></span></div>
-</div>
-</section>
-</div>
-</main>
-<!--
-  brian moved the following to divs above within main area  
-  <div class="description"></div>
-  <div class="milage"></div>
--->
-</div>
+
+        <button class="button is-fullwidth is-medium mb-2" id="submit-btn">Submit</button>
+>>>>>>> main
+      </form>
+      <hr class="ml-2 mb-0">
+      <!-- search for symbol by company name  -->
+      <p class="pt-5 ml-6 mr-6 mb-4 is-size-5">If you don't know the company's stock symbol, search for it here, pick the right one and we'll add it to your form above.</p>
+      <form class="ml-2 p-4 notification box form">
+        <div class="field">
+          <label class="label is-size-5 has-text-white mt-1" for="company-name" id="company-name-label">Company Name:</label>
+          <div class="control has-icons-left">
+            <input class="input companyNameInput" id="company-name" type="text" placeholder="Enter company name"><span
+              class="icon is-small is-left"><i class="fas fa-building"></i></span>
+            <button class="button is-fullwidth is-medium mb-2 mt-4 companyNameSearchBtn " id="symbol-search-btn">Search
+              Symbols</button>
+          </div>
+      </form>
+
+      <div id="resultBtnDiv"></div>
+  </div>
+
+  </aside>
+  <main class="column m-4">
+    <div class="notification main-frame m-5 p-2">
+      <section class="m-2 results notification box scrollable">
+        <!-- added hidden class to result div to hide the empty result headings until there's content to show  -->
+        <div id="result" class="result mb-6 hidden">
+          <div class="mb-2">
+            <h3>Company Name:</h3> <span id="company-name-field"></span>
+          </div>
+          <div class="mb-2">
+            <h3>Description:</h3> <span id="company-description-field"></span>
+          </div>
+          <div class="mb-2">
+            <h3>Current Stock Price:</h3> <span id="current-stock-price"></span>
+          </div>
+          <div class="mb-2">
+            <h3>Previous Day Price:</h3> <span id="previous-day-price"></span>
+          </div>
+          <div class="mb-2">
+            <h3>Change Percent:</h3> <span id="change-percent"></span>
+          </div>
+          <div class="mb-2">
+            <h3>Distance:</h3> <span id="company-distance-from-field"></span>
+          </div>
+        </div>
+
+
+
+        <div id="location-results" class="result mb-6 hidden">
+          <div class="mb-2">
+          <h3> <span class="location-result-name"></span> </h3>
+          </div>
+          <div class="mb-2">
+          <h3> <span class="location-result-address"></span> </h3>
+          </div>
+          <div class="mb-2">
+          <h3> <span class="location-result-distance"></span> </h3>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+ 
+  </div>
+  <div class="modal" id="custom-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="box" id="modal-content-custom">
+        <p class="p-4 mb-2 mt-6 has-text-weight-bold is-size-4">Please fill out all fields!</p>
+        <button class="button mb-6 is-medium has-text-weight-semibold" id="modBtn" onclick="modalClose()">Let's try again.</button>
+      </div>
+    </div>
+  </div>
+  <!-- footer  -->
+      <section class="ftr">
+        <p class="has-text-weight-semibold is-size-5">
+          Team Hamilton Is Fine <i class="far fa-copyright ml-2"></i> 2021
+        </p>
+      </section>
   <script src="./assets/script.js"></script>
 </body>
+
 </html>
