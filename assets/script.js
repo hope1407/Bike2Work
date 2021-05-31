@@ -31,8 +31,6 @@ let getDistance = function(fromAddress,companyAddress){
   })
   .then(function (data) {
     console.log('Fetch Response \n-------------');
-    // moved right below here 
-    // milageResult.textContent = "You are " + data.route.distance.toFixed(1) + " miles from this business."
     console.log(data.route.distance);
     console.log(data)
 
@@ -98,8 +96,21 @@ let getCompany = function(stockSymbol){
       previousCloseField.textContent = "$" + previousClose;
       changePercentField.textContent = changePercent;
     });
+// brian test add for locations
 
-
+    let longitude = "-93.370216";
+    let latitude = "44.959740";
+    let distance = "20000";
+    let company1 = searchedCompanyNameInput.value;
+  console.log("searched company name is "+ company1);
+    fetch(
+      "https://www.mapquestapi.com/search/v4/place?location=" + longitude + "%2C%20%20" + latitude + "&sort=distance&feedback=false&key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&circle=" + longitude + "%2C%20%20" + latitude + "%2C%20" + distance + "&pageSize=5&q=" + company1
+    )
+      .then((response) => response.json())
+      .then((dataLocations) => {
+        console.log("dataLocations", dataLocations);
+      });
+// end brian test 
 
 };
 

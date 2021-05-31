@@ -7,7 +7,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Title</title>
+  <title>Bike2Work</title>
+  <link rel="icon" href="./assets/images/favicon_biking.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
     integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
@@ -46,13 +47,14 @@
                 class="fas fa-chart-line"></i></span>
           </div>
         </div>
-        <div class="field">
+        <!-- delete this save field if no longer needed -->
+        <!-- <div class="field">
           <label class="label has-text-white is-size-5" for="user-save" id="user-save-label">Save Symbol to History?</label>
           <div class="has-icons-left ml-2"><span class="icon is-small is-left"><i
             class="fas fa-save has-text-white"></i></span>
             <input class="mb-2 ml-2" id="user-save" type="checkbox">
           </div>
-        </div>
+        </div> -->
         <div class="field">
           <label class="label has-text-white is-size-5" for="user-address" id="user-address-label">Your Address or Zip:</label>
           <div class="control has-icons-left">
@@ -64,8 +66,8 @@
         <div class="field">
           <label class="label has-text-white is-size-5" for="user-biking-distance" id="user-biking-distance-label">Maximum Biking Distance (Miles):</label>
             <div class="has-icons-left ml-2">
-              <span class="icon is-small is-left"><i class="fas fa-bicycle has-text-white"></i></span>
-            <select class="mb-2 ml-2" id="user-biking-distance">
+              <span class="icon is-small is-left"><i class="fas fa-biking has-text-white"></i></span>
+            <select class="mb-2 ml-3" id="user-biking-distance">
               <option value="default">Select distance</option>
               <option value="1">1</option>
                   <option value="2">2</option>
