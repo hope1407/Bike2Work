@@ -8,67 +8,68 @@ let companyNameSearchBtn = document.querySelector('.companyNameSearchBtn')
 let getDirectionsBtn = document.querySelector('button')
 let milageResult = document.querySelector('.milage')
 let companyDesc = document.querySelector('.description')
+let recentAddressSearch = [];
 
-var addressSubmitHandler = function(event){
+var addressSubmitHandler = function (event) {
   event.preventDefault();
   var fromAddress = fromAddressInput.value;
   var stockSymbol = stockSymbolInput.value
-  if (fromAddress && stockSymbol){
+  if (fromAddress && stockSymbol) {
     getCompany(stockSymbol)
-
+    saveRecentAddressSearch(fromAddress)
   } else {
     alert('Please enter valid addresses.');
-}
+  }
 }
 
-let getDistance = function(fromAddress,companyAddress){
+let getDistance = function (fromAddress, companyAddress) {
   var requestUrl = 'http://www.mapquestapi.com/directions/v2/route?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&from=' + fromAddress + '&to=' + companyAddress;
   fetch(requestUrl)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log('Fetch Response \n-------------');
-    // moved right below here 
-    // milageResult.textContent = "You are " + data.route.distance.toFixed(1) + " miles from this business."
-    console.log(data.route.distance);
-    console.log(data)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log('Fetch Response \n-------------');
+      // moved right below here 
+      // milageResult.textContent = "You are " + data.route.distance.toFixed(1) + " miles from this business."
+      console.log(data.route.distance);
+      console.log(data)
 
-  // start brian's code
-  let companyDistanceFromField = document.getElementById("company-distance-from-field");
-  companyDistanceFromField.textContent =
-  "You are " + data.route.distance.toFixed(1) + " miles from this business."
-  // end brian's code
-  });
+      // start brian's code
+      let companyDistanceFromField = document.getElementById("company-distance-from-field");
+      companyDistanceFromField.textContent =
+        "You are " + data.route.distance.toFixed(1) + " miles from this business."
+      // end brian's code
+    });
 }
 
-let getCompany = function(stockSymbol){
-  var secRequestUrl = 'https://www.alphavantage.co/query?function=OVERVIEW&symbol='+ stockSymbol + '&apikey=9WF9ANK00ZXR6G48'
+let getCompany = function (stockSymbol) {
+  var secRequestUrl = 'https://www.alphavantage.co/query?function=OVERVIEW&symbol=' + stockSymbol + '&apikey=9WF9ANK00ZXR6G48'
   fetch(secRequestUrl)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log('Fetch Response \n-------------');
-    let companyAddress = data.Address
-    let companyDescription = data.Description
-    var fromAddress = fromAddressInput.value;
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log('Fetch Response \n-------------');
+      let companyAddress = data.Address
+      let companyDescription = data.Description
+      var fromAddress = fromAddressInput.value;
 
-// brian moved this to main display area 
-    // companyDesc.textContent = companyDescription
+      // brian moved this to main display area 
+      // companyDesc.textContent = companyDescription
 
-    console.log(data)
-    console.log(companyAddress)
-    console.log(companyDescription)
-    getDistance(fromAddress,companyAddress)
-    
-    // brian new code
-    let companyName = data.Name;
-    let companyNameField = document.getElementById("company-name-field");
-    let companyDescriptionField = document.getElementById("company-description-field");
-    companyNameField.textContent = companyName
-    companyDescriptionField.textContent = companyDescription;
-  });
+      console.log(data)
+      console.log(companyAddress)
+      console.log(companyDescription)
+      getDistance(fromAddress, companyAddress)
+
+      // brian new code
+      let companyName = data.Name;
+      let companyNameField = document.getElementById("company-name-field");
+      let companyDescriptionField = document.getElementById("company-description-field");
+      companyNameField.textContent = companyName
+      companyDescriptionField.textContent = companyDescription;
+    });
 
   // stock quote api
   var secRequestUrl2 =
@@ -100,8 +101,54 @@ let getCompany = function(stockSymbol){
 
 };
 
+getDirectionsBtn.addEventListener('click', addressSubmitHandler,)
 
-getDirectionsBtn.addEventListener('click',addressSubmitHandler,)
+//tuyet's code start here for localstorage
+
+let addressHistoryBtn = document.getElementById("addressHistory");
+let addressSearchInput = document.getElementById("user-address");
+
+function saveRecentAddressSearch(searchedAddress) {
+  console.log("address", searchedAddress)
+   recentAddressSearch = JSON.parse(localStorage.getItem("recentAddressSearch"));
+   recentAddressSearch.push(searchedAddress)
+   if (recentAddressSearch === null) {
+     recentAddressSearch = [];
+   } else {
+   for (let a = 0; a < 3; a++)
+     addressHistoryBtn[a].addEventListener("click", function () {
+       addressSearchInput.value = addressHistoryBtn[a].textContent;
+       let addressHistoryvar = addressHistoryBtn[a].textContent;
+       getAddressByHistory(addressHistoryvar);
+       return;
+     });
+   }
+  
+   if (addressSearchInput !== "") {
+     recentAddressSearch.unshift(addressSearchInput.value);
+     if (recentAddressSearch.length > 3) {
+       recentAddressSearch.pop();
+     }
+   }
+   localStorage.setItem("recentAddressSearch", JSON.stringify(recentAddressSearch));
+}
+
+function renderRecentSearches() {
+  let lastSearch = JSON.parse(localStorage.getItem("recentSearches"));
+  if (lastSearch !== null) {
+    addressHistoryBtn[0].textContent = lastSearch[0];
+    addressHistoryBtn[1].textContent = lastSearch[1];
+    addressHistoryBtn[2].textContent = lastSearch[2];
+  } else {
+    return;
+  }
+}
+
+
+
+
+// //tuyet's code ends for local storage
+
 
 
 function symbolSearch(event) {
@@ -109,44 +156,44 @@ function symbolSearch(event) {
   document.getElementById('testDiv').innerHTML = '';
   let searchedCompanyName = searchedCompanyNameInput.value;
 
-fetch("https://finnhub.io/api/v1/search?q=" + searchedCompanyName  + "&token=c2mpcsqad3idu4aiefeg")
-  .then(response => { return response.json()})
-  .then(data3 => {
+  fetch("https://finnhub.io/api/v1/search?q=" + searchedCompanyName + "&token=c2mpcsqad3idu4aiefeg")
+    .then(response => { return response.json() })
+    .then(data3 => {
       console.log("data3", data3)
-      
+
       for (let r = 0; r < 5; r++) {
-      
-      searchResultSymbol = data3.result[r].displaySymbol;
-      console.log(searchResultSymbol);
+
+        searchResultSymbol = data3.result[r].displaySymbol;
+        console.log(searchResultSymbol);
 
 
-      
-      // create new div
-      const newResultDiv = document.createElement("button");
-      // ids sequentially
-      newResultDiv.setAttribute("class", "result-btn")
-      // and give it some content
-      const newResultContent = document.createTextNode(searchResultSymbol);
-      // add the text node to the newly created div
-      newResultDiv.appendChild(newResultContent);
-      // add the newly created element and its content into the DOM
-      const currentDiv = document.getElementById("testDiv");
-      currentDiv.appendChild(newResultDiv);
-    }
-     
-  
-    // TODO create onclick to display clicked stock symbol in input
-    let resultBtn = document.querySelectorAll('.result-btn')
-    
-    for (let s = 0; s < 5; s++) {
-      resultBtn[s].addEventListener("click", function (event) {
-        event.preventDefault();
-        stockSymbolInput.value = data3.result[s].displaySymbol;
-      });
-  }
 
-})}
+        // create new div
+        const newResultDiv = document.createElement("button");
+        // ids sequentially
+        newResultDiv.setAttribute("class", "result-btn")
+        // and give it some content
+        const newResultContent = document.createTextNode(searchResultSymbol);
+        // add the text node to the newly created div
+        newResultDiv.appendChild(newResultContent);
+        // add the newly created element and its content into the DOM
+        const currentDiv = document.getElementById("testDiv");
+        currentDiv.appendChild(newResultDiv);
+      }
+
+
+      // TODO create onclick to display clicked stock symbol in input
+      let resultBtn = document.querySelectorAll('.result-btn')
+
+      for (let s = 0; s < 5; s++) {
+        resultBtn[s].addEventListener("click", function (event) {
+          event.preventDefault();
+          stockSymbolInput.value = data3.result[s].displaySymbol;
+        });
+      }
+
+    })
+}
 
 
 companyNameSearchBtn.addEventListener('click', symbolSearch)
-  
