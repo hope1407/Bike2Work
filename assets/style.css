@@ -71,7 +71,7 @@
 
   .scrollable {
     max-width: 100%;
-    height: 60vh;
+    height: 65vh;
    overflow-x: auto;
   }
 
