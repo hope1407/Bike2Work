@@ -104,6 +104,52 @@ let getCompany = function(stockSymbol){
 
 getDirectionsBtn.addEventListener('click',addressSubmitHandler)
 
+//tuyet's code start here for localstorage
+
+let addressHistoryBtn = document.getElementById("addressHistory");
+let addressSearchInput = document.getElementById("user-address");
+
+function saveRecentAddressSearch(searchedAddress) {
+  console.log("address", searchedAddress)
+   recentAddressSearch = JSON.parse(localStorage.getItem("recentAddressSearch"));
+   recentAddressSearch.push(searchedAddress)
+   if (recentAddressSearch === null) {
+     recentAddressSearch = [];
+   } else {
+   for (let a = 0; a < 3; a++)
+     addressHistoryBtn[a].addEventListener("click", function () {
+       addressSearchInput.value = addressHistoryBtn[a].textContent;
+       let addressHistoryvar = addressHistoryBtn[a].textContent;
+       getAddressByHistory(addressHistoryvar);
+       return;
+     });
+   }
+  
+   if (addressSearchInput !== "") {
+     recentAddressSearch.unshift(addressSearchInput.value);
+     if (recentAddressSearch.length > 3) {
+       recentAddressSearch.pop();
+     }
+   }
+   localStorage.setItem("recentAddressSearch", JSON.stringify(recentAddressSearch));
+}
+
+function renderRecentSearches() {
+  let lastSearch = JSON.parse(localStorage.getItem("recentSearches"));
+  if (lastSearch !== null) {
+    addressHistoryBtn[0].textContent = lastSearch[0];
+    addressHistoryBtn[1].textContent = lastSearch[1];
+    addressHistoryBtn[2].textContent = lastSearch[2];
+  } else {
+    return;
+  }
+}
+
+
+
+
+// //tuyet's code ends for local storage
+
 
 function symbolSearch(event) {
   event.preventDefault();
