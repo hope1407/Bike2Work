@@ -24,7 +24,7 @@ var addressSubmitHandler = function(event){
 }
 
 let getDistance = function(fromAddress,companyAddress){
-  var requestUrl = 'http://www.mapquestapi.com/directions/v2/route?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&from=' + fromAddress + '&to=' + companyAddress;
+  var requestUrl = 'https://www.mapquestapi.com/directions/v2/route?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&from=' + fromAddress + '&to=' + companyAddress;
   fetch(requestUrl)
   .then(function (response) {
     return response.json();
@@ -186,7 +186,7 @@ function modalClose(){
 
 function latLngFinder(){
   var fromAddress = fromAddressInput.value;
-  var latLonURL = 'http://www.mapquestapi.com/geocoding/v1/address?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&location=' + fromAddress + '';
+  var latLonURL = 'https://www.mapquestapi.com/geocoding/v1/address?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&location=' + fromAddress + '';
   
   fetch(latLonURL)
   .then(function (response) {
