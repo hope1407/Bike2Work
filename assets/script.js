@@ -16,6 +16,8 @@ var addressSubmitHandler = function(event){
   if (fromAddress && stockSymbol){
     getCompany(stockSymbol)
     latLngFinder(fromAddress);
+    saveAddress();
+    //saveRecentAddressSearch(fromAddress);
   } else {
     modal.style.display = 'flex';
 }
@@ -103,6 +105,39 @@ let getCompany = function(stockSymbol){
 
 
 getDirectionsBtn.addEventListener('click',addressSubmitHandler)
+
+var saveAddressBtn = document.querySelectorAll("#user-save");
+
+function saveAddress(){
+        //get text input
+        var address = fromAddressInput.value;
+        //get local data if there is local data
+        var data = JSON.parse(localStorage.getItem("address")) || [];
+        //filter the data
+        const filteredData = data.filter(function (datum) {
+            if (datum.address !== address) {
+                return true
+            }
+            return false
+        });
+        //construct new data entry obj
+        var entry = {
+            address: address
+        }
+        filteredData.push(entry);
+        //overwrite local storgae with updated data
+        localStorage.setItem("address", JSON.stringify(entry));
+    };
+
+var data = JSON.parse(localStorage.getItem("address")) || [];
+
+//displays each hours text on load of page
+console.log(data)
+function displayLocalSorage(){
+  fromAddressInput.value = data.address
+}
+
+displayLocalSorage()
 
 
 function symbolSearch(event) {
