@@ -5,16 +5,19 @@ For this group project, we built a webpage that allow user to find a workplace n
 web page
 ![](assets/images/screenshot.jpg)
 ## User story
-- As a User
- I WANT to get information about the company that I want to work there
- I WANT to know if there are locations within a reasonable distance
- SO THAT I can plan on bike to work
+ As a User<br>
+ I WANT to get information about the company that I want to work there<br>
+ I WANT to know if there are locations within a reasonable distance<br>
+ SO THAT I can plan on bike to work<br>
 ## Acceptance criteria
-GIVEN a Bike2Work webpage
-WHEN I search a stock symbol by company's name THEN I see a list of stock symbol
-When I click on a stock symbol Then I am presented with company's overview infomation and distance to headquater 
-When I select maximum biking distance THEN I presented with locations that is bikeable
-When I refresh the page THEN I am shown the last location I searched
+GIVEN a Bike2Work webpage <br>
+WHEN I search a stock symbol by company's name<br>
+THEN I see a list of stock symbol<br>
+WHEN I click on a stock symbol<br>
+THEN I am presented with company's overview infomation and distance to headquaters<br>
+WHEN I select maximum biking distance<br>
+THEN I presented with locations that are bikeable<br>
+WHEN I refresh the page THEN I am shown the last location I searched<br>
 
 ## Credits
 Bike2Work is created and maintained by Brian Palay, John Hope, Jorge B and Tuyet Nguyen
