@@ -1,17 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=KoHo:wght@400;600;700&display=swap");
 
 
-/* :root {
-  --main-btn-bg-color: #f5f5f5;
-  --main-btn-hover-bg-color: hsl(0, 0%, 86%);
-  --results-btn-bg-color: #f5f5f5;
-  --results-btn-hover-bg-color: hsl(0, 0%, 86%);
-  --btn-border-radius: 15px;
-  --box-shadow-color: rgb(44, 44, 44);
-  --primary-bg-color: #3298dc;
-} */
-
-/* alternative colors */
+/* colors and other common styles */
 :root {
   --main-btn-bg-color: #FCFCFC;
   --main-btn-hover-bg-color: #A3B59E;
@@ -50,33 +40,45 @@
     justify-content: center;
     align-items: center;
   }
-  
+
+  /* aside  */
   .form {
     background-color: var(--primary-bg-color);
   }
 
-  .main-frame {
-    background-color: var(--primary-bg-color);
+  .forms {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-bottom {
+  order: 2;
+  }
+
+  .form-top {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #company-name-label {
+    text-align: left;
+  }
+
+  .stockSymbolInput {
+    background-color: transparent;
+    border: none;
+  }
+
+  .stockSymbolInput::placeholder { 
+    color: #f5f5f5;
   }
 
   #user-biking-distance {
     height: 40px;
     border-radius: 7px;
-  }
-
-  hr {
-    background-color: var(--primary-bg-color);
-    height: 3px;
-  }
-
-  .scrollable {
-    max-width: 100%;
-    height: 65vh;
-   overflow-x: auto;
-  }
-
-  h3 {
-    font-weight: 600;
   }
 
   #resultBtnDiv, 
@@ -117,6 +119,25 @@
   .result-btn:hover {
     background-color: var(--results-btn-hover-bg-color);
     transition: 0.2s all ease;
+  }
+
+  /* main  */
+  .main-frame {
+    background-color: var(--primary-bg-color);
+  }
+
+  .scrollable {
+    max-width: 100%;
+    height: 65vh;
+    overflow-x: auto;
+  }
+
+  h3 {
+    font-weight: 600;
+  }
+
+  #location-results h2 {
+    text-decoration: underline;
   }
 
   .ftr {
