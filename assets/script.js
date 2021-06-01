@@ -3,11 +3,13 @@ let stockSymbolInput = document.querySelector('.stockSymbolInput')
 // created variable for name lookup 
 let searchedCompanyNameInput = document.querySelector('.companyNameInput')
 let companyNameSearchBtn = document.querySelector('.companyNameSearchBtn')
+let userBikingDistanceInput = document.getElementById('user-biking-distance')
 let getDirectionsBtn = document.querySelector('button')
 let milageResult = document.querySelector('.milage')
 let companyDesc = document.querySelector('.description')
 let modal = document.querySelector('#custom-modal')
 let modBtn = document.querySelector('#modBtn')
+
 
 var addressSubmitHandler = function(event){
   event.preventDefault();
@@ -24,7 +26,7 @@ var addressSubmitHandler = function(event){
 }
 
 let getDistance = function(fromAddress,companyAddress){
-  var requestUrl = 'http://www.mapquestapi.com/directions/v2/route?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&from=' + fromAddress + '&to=' + companyAddress;
+  var requestUrl = 'https://www.mapquestapi.com/directions/v2/route?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&from=' + fromAddress + '&to=' + companyAddress;
   fetch(requestUrl)
   .then(function (response) {
     return response.json();
@@ -41,6 +43,7 @@ let getDistance = function(fromAddress,companyAddress){
   // end brian's code
   });
 }
+
 
 let getCompany = function(stockSymbol){
   var secRequestUrl = 'https://www.alphavantage.co/query?function=OVERVIEW&symbol='+ stockSymbol + '&apikey=9WF9ANK00ZXR6G48'
@@ -96,22 +99,6 @@ let getCompany = function(stockSymbol){
       previousCloseField.textContent = "$" + previousClose;
       changePercentField.textContent = changePercent;
     });
-// brian test add for locations
-
-    let longitude = "-93.370216";
-    let latitude = "44.959740";
-    let distance = "20000";
-    let company1 = searchedCompanyNameInput.value;
-  console.log("searched company name is "+ company1);
-    fetch(
-      "https://www.mapquestapi.com/search/v4/place?location=" + longitude + "%2C%20%20" + latitude + "&sort=distance&feedback=false&key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&circle=" + longitude + "%2C%20%20" + latitude + "%2C%20" + distance + "&pageSize=5&q=" + company1
-    )
-      .then((response) => response.json())
-      .then((dataLocations) => {
-        console.log("dataLocations", dataLocations);
-      });
-// end brian test 
-
 };
 
 
@@ -186,7 +173,7 @@ function modalClose(){
 
 function latLngFinder(){
   var fromAddress = fromAddressInput.value;
-  var latLonURL = 'http://www.mapquestapi.com/geocoding/v1/address?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&location=' + fromAddress + '';
+  var latLonURL = 'https://www.mapquestapi.com/geocoding/v1/address?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&location=' + fromAddress + '';
   
   fetch(latLonURL)
   .then(function (response) {
@@ -197,7 +184,37 @@ function latLngFinder(){
     console.log(data)
     console.log(data.results[0].locations[0].latLng.lat)
     console.log(data.results[0].locations[0].latLng.lng);
+    
+
+    // use this API data to work with lng/lat of result locations 
+    let longitude = data.results[0].locations[0].latLng.lng;
+    let latitude = data.results[0].locations[0].latLng.lat;
+    console.log("newlat "+ latitude + ", " + "newlon" + longitude);
+
+    // convert miles to meters for API
+    let distance = userBikingDistanceInput.value * 1609.34;
+    let company1 = searchedCompanyNameInput.value;
+    fetch(
+      "https://www.mapquestapi.com/search/v4/place?location=" + longitude + "%2C%20%20" + latitude + "&sort=distance&feedback=false&key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&circle=" + longitude + "%2C%20%20" + latitude + "%2C%20" + distance + "&pageSize=10&q=" + company1
+    )
+      .then((response) => response.json())
+      .then((dataLocations) => {
+        console.log("dataLocations", dataLocations);
+        
+        let locationResultsDisplay = document.getElementById('location-results');
+        let locationResultNameDisplay = document.querySelectorAll('.location-result-name');
+
+        locationResultsDisplay.classList.remove('hidden');
+
+        for (let r = 0; r < 10; r++) {
+        let resultName = dataLocations.results[r].displayString;
+        locationResultNameDisplay[r].textContent = resultName ;
+        }
+      });
+
   });
   }
+
+
 
 companyNameSearchBtn.addEventListener('click', symbolSearch);

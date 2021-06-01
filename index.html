@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +11,6 @@
     integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/style.css">
 </head>
-
 <body class="">
   <section class="hero header">
     <div class="hero-body">
@@ -23,45 +19,32 @@
           Bike2Work
         </h1>
         <h2 class="center has-text-weight-semibold is-size-4">
-          Save money, get fit, and reduce your carbon footprint! 
+          Save money, get fit, and reduce your carbon footprint!
         </h2>
       </div>
     </div>
   </section>
-
+  <div class="center has-text-weight-semibold has-text-black">
+    <p class="p-5 ml-5 is-size-5">Search for a company's profile information and suggested BIKEABLE locations near you. Fill out all the fields below and click SUBMIT to get results. Enter a company name, click SEARCH SYMBOLS, and click on the desired company to get started, then move to the form below.
+  </p>
+  </div>
   <div class="columns">
     <aside class="column is-two-fifths m-4 has-text-weight-semibold has-text-black">
-      <div class="">
-        <p class="pt-5 ml-5 is-size-5">TODO: Come up with good description of what our app is
-          
-        </p>
-        <p class="pt-5 ml-5 mb-4 is-size-5">
-          TODO: Come up with good description of how to use it with the form below.
-
-        </p>
-      </div>
-      <form class="ml-2 p-4 notification box form">
-        <div class="field">
+      <div class="forms ml-1">
+      <form class="ml-2 p-4 notification box form form-bottom">
+    <div class="field">
           <label class="label has-text-white is-size-5" for="stock-symbol" id="stock-symbol-label">Stock Symbol:</label>
           <div class="control has-icons-left">
-            <input class="input mb-2 stockSymbolInput" id="stock-symbol" type="text"
-              placeholder="Enter stock symbol"><span class="icon is-small is-left"><i
+            <input readonly class="input mb-2 stockSymbolInput has-text-white has-text-weight-bold" id="stock-symbol" type="text"
+              placeholder="Search above for stock symbol"><span class="icon is-small is-left"><i
                 class="fas fa-chart-line"></i></span>
           </div>
         </div>
-        <!-- delete this save field if no longer needed -->
-        <!-- <div class="field">
-          <label class="label has-text-white is-size-5" for="user-save" id="user-save-label">Save Symbol to History?</label>
-          <div class="has-icons-left ml-2"><span class="icon is-small is-left"><i
-            class="fas fa-save has-text-white"></i></span>
-            <input class="mb-2 ml-2" id="user-save" type="checkbox">
-          </div>
-        </div> -->
         <div class="field">
-          <label class="label has-text-white is-size-5" for="user-address" id="user-address-label">Your Address or Zip:</label>
+          <label class="label has-text-white is-size-5" for="user-address" id="user-address-label">Your Location:</label>
           <div class="control has-icons-left">
             <input class="input mb-2 fromAddress" id="user-address" type="text"
-              placeholder="Enter your address or zip"><span class="icon is-small is-left"><i
+              placeholder="Enter your location"><span class="icon is-small is-left"><i
                 class="fas fa-home"></i></span>
           </div>
         </div>
@@ -121,73 +104,107 @@
                   <option value="48">48</option>
                   <option value="49">49</option>
                   <option value="50">50</option>
-                </select> 
+                </select>
           </div>
         </div>
-
-
         <button class="button is-fullwidth is-medium mb-2" id="submit-btn">Submit</button>
       </form>
-      <hr class="ml-2 mb-0">
       <!-- search for symbol by company name  -->
-      <p class="pt-5 ml-6 mr-6 mb-4 is-size-5">If you don't know the company's stock symbol, search for it here, pick the right one and we'll add it to your form above.</p>
-      <form class="ml-2 p-4 notification box form">
+      <form class="ml-2 mb-5 p-4 notification box form form-top">
         <div class="field">
           <label class="label is-size-5 has-text-white mt-1" for="company-name" id="company-name-label">Company Name:</label>
           <div class="control has-icons-left">
             <input class="input companyNameInput" id="company-name" type="text" placeholder="Enter company name"><span
-              class="icon is-small is-left"><i class="fas fa-building"></i></span>
-            <button class="button is-fullwidth is-medium mb-2 mt-4 companyNameSearchBtn " id="symbol-search-btn">Search
+            class="icon is-small is-left"><i class="fas fa-building"></i></span>
+            <button class="button mb-1 mt-4 companyNameSearchBtn " id="symbol-search-btn">Search
               Symbols</button>
-          </div>
-      </form>
-
-      <div id="resultBtnDiv"></div>
-  </div>
-
-  </aside>
-  <main class="column m-4">
-    <div class="notification main-frame m-5 p-2">
-      <section class="m-2 results notification box scrollable">
-        <!-- added hidden class to result div to hide the empty result headings until there's content to show  -->
-        <div id="result" class="result mb-6 hidden">
-          <div class="mb-2">
-            <h3>Company Name:</h3> <span id="company-name-field"></span>
-          </div>
-          <div class="mb-2">
-            <h3>Description:</h3> <span id="company-description-field"></span>
-          </div>
-          <div class="mb-2">
-            <h3>Current Stock Price:</h3> <span id="current-stock-price"></span>
-          </div>
-          <div class="mb-2">
-            <h3>Previous Day Price:</h3> <span id="previous-day-price"></span>
-          </div>
-          <div class="mb-2">
-            <h3>Change Percent:</h3> <span id="change-percent"></span>
+              <div id="resultBtnDiv"></div>
+            </div>
+          </form>
+        </div>
+        <!-- <hr class="ml-2 mb-5"> -->
+      </div>
+    </aside>
+    <main class="column m-4">
+      <div class="notification main-frame mr-2 p-2">
+        <section class="m-2 results notification box scrollable">
+          <!-- added hidden class to result div to hide the empty result headings until there's content to show  -->
+          <div id="result" class="result mb-6 hidden">
+            <div class="mb-2">
+              <h3>Company Name:</h3> <span id="company-name-field"></span>
+            </div>
+            <div class="mb-2">
+              <h3>Description:</h3> <span id="company-description-field"></span>
+            </div>
+            <div class="mb-2">
+              <h3>Current Stock Price:</h3> <span id="current-stock-price"></span>
+            </div>
+            <div class="mb-2">
+              <h3>Previous Day Price:</h3> <span id="previous-day-price"></span>
+            </div>
+            <div class="mb-2">
+              <h3>Change Percent:</h3> <span id="change-percent"></span>
           </div>
           <div class="mb-2">
             <h3>Distance:</h3> <span id="company-distance-from-field"></span>
           </div>
         </div>
-
-
-
         <div id="location-results" class="result mb-6 hidden">
-          <div class="mb-2">
-          <h3> <span class="location-result-name"></span> </h3>
+          <div><h2 class="has-text-black has-text-weight-bold is-size-4 mb-5">You can Bike2Work to these locations:</h2></div>
+          <div class="location-result">
+            <div class="mb-3">
+            <h3> <span class="location-result-name"></span> </h3>
+            </div>
           </div>
-          <div class="mb-2">
-          <h3> <span class="location-result-address"></span> </h3>
+          <div class="location-result">
+            <div class="mb-3">
+            <h3> <span class="location-result-name"></span> </h3>
+            </div>
           </div>
-          <div class="mb-2">
-          <h3> <span class="location-result-distance"></span> </h3>
+          <div class="location-result">
+            <div class="mb-3">
+            <h3> <span class="location-result-name"></span> </h3>
+            </div>
+          </div>
+          <div class="location-result">
+            <div class="mb-3">
+            <h3> <span class="location-result-name"></span> </h3>
+            </div>
+          </div>
+          <div class="location-result">
+            <div class="mb-3">
+            <h3> <span class="location-result-name"></span> </h3>
+            </div>
+          </div>
+          <div class="location-result">
+            <div class="mb-3">
+            <h3> <span class="location-result-name"></span> </h3>
+            </div>
+          </div>
+          <div class="location-result">
+            <div class="mb-3">
+            <h3> <span class="location-result-name"></span> </h3>
+            </div>
+          </div>
+          <div class="location-result">
+            <div class="mb-3">
+            <h3> <span class="location-result-name"></span> </h3>
+            </div>
+          </div>
+          <div class="location-result">
+            <div class="mb-3">
+            <h3> <span class="location-result-name"></span> </h3>
+            </div>
+          </div>
+          <div class="location-result">
+            <div class="mb-3">
+            <h3> <span class="location-result-name"></span> </h3>
+            </div>
           </div>
         </div>
       </section>
     </div>
   </main>
- 
   </div>
   <div class="modal" id="custom-modal">
     <div class="modal-background"></div>
@@ -206,5 +223,4 @@
       </section>
   <script src="./assets/script.js"></script>
 </body>
-
 </html>
