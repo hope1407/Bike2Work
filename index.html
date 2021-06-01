@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +11,6 @@
     integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/style.css">
 </head>
-
 <body class="">
   <section class="hero header">
     <div class="hero-body">
@@ -23,17 +19,15 @@
           Bike2Work
         </h1>
         <h2 class="center has-text-weight-semibold is-size-4">
-          Save money, get fit, and reduce your carbon footprint! 
+          Save money, get fit, and reduce your carbon footprint!
         </h2>
       </div>
     </div>
   </section>
-
   <div class="center has-text-weight-semibold has-text-black">
     <p class="p-5 ml-5 is-size-5">Search for a company's profile information and suggested BIKEABLE locations near you. Fill out all the fields below and click SUBMIT to get results. Enter a company name, click SEARCH SYMBOLS, and click on the desired company to get started, then move to the form below.
   </p>
   </div>
-
   <div class="columns">
     <aside class="column is-two-fifths m-4 has-text-weight-semibold has-text-black">
       <div class="forms ml-1">
@@ -110,11 +104,9 @@
                   <option value="48">48</option>
                   <option value="49">49</option>
                   <option value="50">50</option>
-                </select> 
+                </select>
           </div>
         </div>
-
-
         <button class="button is-fullwidth is-medium mb-2" id="submit-btn">Submit</button>
       </form>
       <!-- search for symbol by company name  -->
@@ -124,7 +116,6 @@
           <div class="control has-icons-left">
             <input class="input companyNameInput" id="company-name" type="text" placeholder="Enter company name"><span
             class="icon is-small is-left"><i class="fas fa-building"></i></span>
-            
             <button class="button mb-1 mt-4 companyNameSearchBtn " id="symbol-search-btn">Search
               Symbols</button>
               <div id="resultBtnDiv"></div>
@@ -132,9 +123,7 @@
           </form>
         </div>
         <!-- <hr class="ml-2 mb-5"> -->
-        
       </div>
-      
     </aside>
     <main class="column m-4">
       <div class="notification main-frame mr-2 p-2">
@@ -160,9 +149,6 @@
             <h3>Distance:</h3> <span id="company-distance-from-field"></span>
           </div>
         </div>
-
-
-
         <div id="location-results" class="result mb-6 hidden">
           <div><h2 class="has-text-black has-text-weight-bold is-size-4 mb-5">You can Bike2Work to these locations:</h2></div>
           <div class="location-result">
@@ -219,7 +205,6 @@
       </section>
     </div>
   </main>
- 
   </div>
   <div class="modal" id="custom-modal">
     <div class="modal-background"></div>
@@ -238,5 +223,4 @@
       </section>
   <script src="./assets/script.js"></script>
 </body>
-
 </html>
