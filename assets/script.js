@@ -118,8 +118,11 @@ var data = JSON.parse(localStorage.getItem("savedAddress")) || [];
 //displays each hours text on load of page
 console.log(data)
 function displayLocalSorage(){
-  fromAddressInput.value = data.address
+  if (localStorage.getItem("savedAddress") !== null) {
+    fromAddressInput.value = data.address
+  } 
 }
+
 
 displayLocalSorage()
 
