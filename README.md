@@ -1,14 +1,20 @@
 # Bike2Work
+
 ## Description
-For this group project, we built a webpage that allow user to find a workplace near their home and also give the user a brief information about the company 
+For this group project, we built a webpage that allow user to find a workplace near their home that they can bike to and also give the user a brief information about the company 
+
+Deployed link: https://hope1407.github.io/Bike2Work/
+
 ## Final product overview
 web page
 ![](assets/images/screenshot.jpg)
+
 ## User story
 - As a User
  I WANT to get information about the company that I want to work there
  I WANT to know if there are locations within a reasonable distance
  SO THAT I can plan on bike to work
+
 ## Acceptance criteria
 GIVEN a Bike2Work webpage
 WHEN I search a stock symbol by company's name THEN I see a list of stock symbol
@@ -18,8 +24,10 @@ When I refresh the page THEN I am shown the last location I searched
 
 ## Credits
 Bike2Work is created and maintained by Brian Palay, John Hope, Jorge B and Tuyet Nguyen
+
 ## Thanks to
 Thanks to our Instructor Charlie Werness, our TAs Daniel Vitelli, Mai Hashad and Vito
+
 ## License
 MIT License
 
