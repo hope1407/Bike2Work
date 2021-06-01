@@ -26,7 +26,7 @@ var addressSubmitHandler = function(event){
 }
 
 let getDistance = function(fromAddress,companyAddress){
-  var requestUrl = 'http://www.mapquestapi.com/directions/v2/route?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&from=' + fromAddress + '&to=' + companyAddress;
+  var requestUrl = 'https://www.mapquestapi.com/directions/v2/route?key=kAuLKYebMSAVKTRJlvyqYwLhARo2v9lS&from=' + fromAddress + '&to=' + companyAddress;
   fetch(requestUrl)
   .then(function (response) {
     return response.json();
