@@ -39,7 +39,7 @@ let getDistance = function(fromAddress,companyAddress){
   // start brian's code
   let companyDistanceFromField = document.getElementById("company-distance-from-field");
   companyDistanceFromField.textContent =
-  "You are " + data.route.distance.toFixed(1) + " miles from this business."
+  "You are " + data.route.distance.toFixed(1) + " miles from this business's headquarters."
   // end brian's code
   });
 }
