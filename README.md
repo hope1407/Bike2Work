@@ -1,34 +1,63 @@
 # Bike2Work
+This is an application designed to let people research large companies and find locations of those companies close enough to commute to via bicycle.
+
+See the project live here:
+https://bpplaysguitar.github.io/Bike2Work/
+
+![GitHub code size](https://img.shields.io/github/languages/code-size/bpplaysguitar/Bike2Work?color=FF0000&logo=GitHub&logoColor=FF0000&style=for-the-badge)
+
+![GitHub top language](https://img.shields.io/github/languages/top/bpplaysguitar/Bike2Work?color=FF7F00&logo=GitHub&logoColor=FF7F00&style=for-the-badge)
+
+![GitHub repo size](https://img.shields.io/github/repo-size/bpplaysguitar/Bike2Work?color=FFFF00&logo=GitHub&logoColor=FFFF00&style=for-the-badge)
+
+![GitHub followers](https://img.shields.io/github/followers/bpplaysguitar?color=00FF00&logo=GitHub&logoColor=00FF00&style=for-the-badge)
+
+![GitHub language count](https://img.shields.io/github/languages/count/bpplaysguitar/Bike2Work?color=0000FF&logo=GitHub&logoColor=0000FF&style=for-the-badge)
+
+![GitHub license](https://img.shields.io/github/license/bpplaysguitar/Bike2Work?color=2E2B5F&logo=GitHub&logoColor=2E2B5F&style=for-the-badge)
+
+![GitHub repo stars](https://img.shields.io/github/stars/bpplaysguitar/Bike2Work?color=8B00FF&logo=GitHub&logoColor=8B00FF&style=for-the-badge)
+
 
 ## Description
-For this group project, we built a webpage that allow user to find a workplace near their home that they can bike to and also give the user a brief information about the company 
+More detailed coming...
 
-Deployed link: https://hope1407.github.io/Bike2Work/
 
-## Final product overview
-web page
-![](assets/images/screenshot.jpg)
+## Technologies Used
+HTML
+CSS
+JavaScript
+Local Storage
+APIs
 
-## User story
-As a User<br>
-I WANT to get information about the company that I want to work there<br>
-I WANT to know if there are locations within a reasonable distance<br>
-SO THAT I can plan on bike to work<br>
 
-## Acceptance criteria
-GIVEN a Bike2Work webpage <br>
-WHEN I search a stock symbol by company's name<br>
-THEN I see a list of stock symbol<br>
-WHEN I click on a stock symbol<br>
-THEN I am presented with company's overview infomation and distance to headquaters<br>
-WHEN I select maximum biking distance<br>
-THEN I presented with locations that are bikeable<br>
-WHEN I refresh the page THEN I am shown the last location I searched<br>
+## Installation
+
+1. Provided that you have a code editor of your choosing installed on your system, such as VS Code (https://code.visualstudio.com/),
+
+2. Provided that you have a Terminal installed for Windows (https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?rtc=1&activetab=pivot:overviewtab) or are using a Mac with Terminal installed with the OS,
+
+3. You have Git and Github Desktop installed (https://git-scm.com/downloads, https://desktop.github.com/) and have registered for an account,
+
+4. Clone this repository:
+git clone https://github.com/bpplaysguitar/Bike2Work.git,
+
+5. Create your own repository for the files on GitHub.
+
+6. Edit in your code editor and continue to commit, push changes and perform other Git actions using your repository https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html.
+
+## Usage
+
+Screenshot image of the project web page
+
+![](assets/images/bike2work-gif.gif)
 
 ## Credits
+Professional README guide template provided by Coding Boot Camp. https://github.com/coding-boot-camp
+
 Bike2Work is created and maintained by Brian Palay, John Hope, Jorge B and Tuyet Nguyen
 
-## Thanks to
+## Thanks
 Thanks to our Instructor Charlie Werness, our TAs Daniel Vitelli, Mai Hashad and Vito
 
 ## License
